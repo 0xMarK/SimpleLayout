@@ -2,7 +2,7 @@
 
 [![Swift Package Manager](https://img.shields.io/badge/Swift_Package_Manager-compatible-orange?style=flat)](https://img.shields.io/badge/Swift_Package_Manager-compatible-orange?style=flat)
 
-Layout your views simply! Without XIBs and Storyoards. Using only UIKit code. Hierarchical structure of SimpleLayout views is easy to read. For best layout try to use UIStackViews whenever possible.
+Layout your views simply! Without XIBs and Storyboards. Using only UIKit code. Hierarchical structure of SimpleLayout views is easy to read. For best layout try to use UIStackViews whenever possible.
 
 ```swift
 import SimpleLayout
