@@ -9,7 +9,7 @@ import UIKit
 
 extension String {
     
-    func rect(with size: CGSize, font: UIFont? = nil) -> CGRect {
+    public func rect(with size: CGSize, font: UIFont? = nil) -> CGRect {
         let attributes: [NSAttributedString.Key: Any]?
         if let font = font {
             attributes = [.font: font]
