@@ -32,7 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4D461EF627BFDB1F00B585AB /* SimpleLayout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleLayout.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D461EF627BFDB1F00B585AB /* SimpleLayoutExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleLayoutExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D461EF927BFDB1F00B585AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4D461F0227BFDB2100B585AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D461F0527BFDB2100B585AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -55,6 +55,7 @@
 		4D461F2A27BFDDFE00B585AB /* UIView+positionCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+positionCenter.swift"; sourceTree = "<group>"; };
 		4D461F2C27BFDDFE00B585AB /* String+rect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+rect.swift"; sourceTree = "<group>"; };
 		4D461F2E27BFDDFE00B585AB /* NSObject+className.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+className.swift"; sourceTree = "<group>"; };
+		4DEAA0F327BFFCB00035CEDD /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,34 +72,35 @@
 		4D461EED27BFDB1F00B585AB = {
 			isa = PBXGroup;
 			children = (
-				4D461EF827BFDB1F00B585AB /* SimpleLayout */,
+				4DEAA0E827BFFB610035CEDD /* SimpleLayout */,
+				4D461EF827BFDB1F00B585AB /* SimpleLayoutExample */,
 				4D461EF727BFDB1F00B585AB /* Products */,
+				4DEAA0F227BFFCB00035CEDD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		4D461EF727BFDB1F00B585AB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4D461EF627BFDB1F00B585AB /* SimpleLayout.app */,
+				4D461EF627BFDB1F00B585AB /* SimpleLayoutExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4D461EF827BFDB1F00B585AB /* SimpleLayout */ = {
+		4D461EF827BFDB1F00B585AB /* SimpleLayoutExample */ = {
 			isa = PBXGroup;
 			children = (
 				4D461F0F27BFDDFE00B585AB /* Colors */,
 				4D461F2327BFDDFE00B585AB /* Extension */,
 				4D461F2127BFDDFE00B585AB /* Fonts */,
 				4D461F1227BFDDFE00B585AB /* Models */,
-				4D461F1527BFDDFE00B585AB /* Protocols */,
 				4D461F1727BFDDFE00B585AB /* Screens */,
 				4D461F0D27BFDDFD00B585AB /* Views */,
 				4D461EF927BFDB1F00B585AB /* AppDelegate.swift */,
 				4D461F0227BFDB2100B585AB /* Assets.xcassets */,
 				4D461F0427BFDB2100B585AB /* LaunchScreen.storyboard */,
 			);
-			path = SimpleLayout;
+			path = SimpleLayoutExample;
 			sourceTree = "<group>";
 		};
 		4D461F0D27BFDDFD00B585AB /* Views */ = {
@@ -191,8 +193,6 @@
 			isa = PBXGroup;
 			children = (
 				4D461F2427BFDDFE00B585AB /* UIButton */,
-				4D461F2627BFDDFE00B585AB /* UIView */,
-				4D461F2B27BFDDFE00B585AB /* String */,
 				4D461F2D27BFDDFE00B585AB /* NSObject */,
 			);
 			path = Extension;
@@ -233,12 +233,46 @@
 			path = NSObject;
 			sourceTree = "<group>";
 		};
+		4DEAA0E827BFFB610035CEDD /* SimpleLayout */ = {
+			isa = PBXGroup;
+			children = (
+				4DEAA0EC27BFFB620035CEDD /* Sources */,
+			);
+			path = SimpleLayout;
+			sourceTree = "<group>";
+		};
+		4DEAA0EC27BFFB620035CEDD /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				4DEAA0F127BFFC000035CEDD /* Extensions */,
+				4D461F1527BFDDFE00B585AB /* Protocols */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		4DEAA0F127BFFC000035CEDD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4D461F2B27BFDDFE00B585AB /* String */,
+				4D461F2627BFDDFE00B585AB /* UIView */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4DEAA0F227BFFCB00035CEDD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4DEAA0F327BFFCB00035CEDD /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4D461EF527BFDB1F00B585AB /* SimpleLayout */ = {
+		4D461EF527BFDB1F00B585AB /* SimpleLayoutExample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4D461F0A27BFDB2100B585AB /* Build configuration list for PBXNativeTarget "SimpleLayout" */;
+			buildConfigurationList = 4D461F0A27BFDB2100B585AB /* Build configuration list for PBXNativeTarget "SimpleLayoutExample" */;
 			buildPhases = (
 				4D461EF227BFDB1F00B585AB /* Sources */,
 				4D461EF327BFDB1F00B585AB /* Frameworks */,
@@ -248,9 +282,9 @@
 			);
 			dependencies = (
 			);
-			name = SimpleLayout;
+			name = SimpleLayoutExample;
 			productName = SimpleLayout;
-			productReference = 4D461EF627BFDB1F00B585AB /* SimpleLayout.app */;
+			productReference = 4D461EF627BFDB1F00B585AB /* SimpleLayoutExample.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -281,7 +315,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4D461EF527BFDB1F00B585AB /* SimpleLayout */,
+				4D461EF527BFDB1F00B585AB /* SimpleLayoutExample */,
 			);
 		};
 /* End PBXProject section */
@@ -475,7 +509,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mark.SimpleLayout;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mark.SimpleLayoutExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -502,7 +536,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mark.SimpleLayout;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mark.SimpleLayoutExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -522,7 +556,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4D461F0A27BFDB2100B585AB /* Build configuration list for PBXNativeTarget "SimpleLayout" */ = {
+		4D461F0A27BFDB2100B585AB /* Build configuration list for PBXNativeTarget "SimpleLayoutExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4D461F0B27BFDB2100B585AB /* Debug */,

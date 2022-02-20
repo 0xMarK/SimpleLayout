@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4D461EF527BFDB1F00B585AB"
-               BuildableName = "SimpleLayout.app"
-               BlueprintName = "SimpleLayout"
+               BuildableName = "SimpleLayoutExample.app"
+               BlueprintName = "SimpleLayoutExample"
                ReferencedContainer = "container:SimpleLayout.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,8 +45,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4D461EF527BFDB1F00B585AB"
-            BuildableName = "SimpleLayout.app"
-            BlueprintName = "SimpleLayout"
+            BuildableName = "SimpleLayoutExample.app"
+            BlueprintName = "SimpleLayoutExample"
             ReferencedContainer = "container:SimpleLayout.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -62,8 +62,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4D461EF527BFDB1F00B585AB"
-            BuildableName = "SimpleLayout.app"
-            BlueprintName = "SimpleLayout"
+            BuildableName = "SimpleLayoutExample.app"
+            BlueprintName = "SimpleLayoutExample"
             ReferencedContainer = "container:SimpleLayout.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
