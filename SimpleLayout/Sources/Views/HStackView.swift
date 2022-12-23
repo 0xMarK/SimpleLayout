@@ -9,7 +9,7 @@ import UIKit
 
 open class HStackView: UIStackView {
     
-    init(alignment: UIStackView.Alignment = .fill, spacing: CGFloat = 0, insets: UIEdgeInsets = .zero) {
+    public init(alignment: UIStackView.Alignment = .fill, spacing: CGFloat = 0, insets: UIEdgeInsets = .zero) {
         super.init(frame: .zero)
         self.axis = .horizontal
         self.alignment = alignment
