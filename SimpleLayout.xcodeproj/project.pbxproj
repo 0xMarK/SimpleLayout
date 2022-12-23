@@ -30,6 +30,7 @@
 		4D461F4027BFDDFE00B585AB /* String+rect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D461F2C27BFDDFE00B585AB /* String+rect.swift */; };
 		4D461F4127BFDDFE00B585AB /* NSObject+className.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D461F2E27BFDDFE00B585AB /* NSObject+className.swift */; };
 		7C04D6FF2955D827003CF4B3 /* UIScrollView+addHContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C04D6FE2955D827003CF4B3 /* UIScrollView+addHContent.swift */; };
+		7C04D70229560008003CF4B3 /* UIEdgeInsets+all.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C04D70129560008003CF4B3 /* UIEdgeInsets+all.swift */; };
 		7C209A842955C6EB00309F12 /* HStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C209A832955C6EB00309F12 /* HStackView.swift */; };
 		7C209A862955CEC100309F12 /* VStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C209A852955CEC100309F12 /* VStackView.swift */; };
 		7C209A892955D5D700309F12 /* UIScrollView+addVContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C209A882955D5D700309F12 /* UIScrollView+addVContent.swift */; };
@@ -61,6 +62,7 @@
 		4D461F2E27BFDDFE00B585AB /* NSObject+className.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+className.swift"; sourceTree = "<group>"; };
 		4DEAA0F327BFFCB00035CEDD /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		7C04D6FE2955D827003CF4B3 /* UIScrollView+addHContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+addHContent.swift"; sourceTree = "<group>"; };
+		7C04D70129560008003CF4B3 /* UIEdgeInsets+all.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+all.swift"; sourceTree = "<group>"; };
 		7C209A832955C6EB00309F12 /* HStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HStackView.swift; sourceTree = "<group>"; };
 		7C209A852955CEC100309F12 /* VStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VStackView.swift; sourceTree = "<group>"; };
 		7C209A882955D5D700309F12 /* UIScrollView+addVContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+addVContent.swift"; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 		4DEAA0F127BFFC000035CEDD /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				7C04D7002955FFF6003CF4B3 /* UIEdgeInsets */,
 				4D461F2B27BFDDFE00B585AB /* String */,
 				7C209A872955D59C00309F12 /* UIScrollView */,
 				4D461F2627BFDDFE00B585AB /* UIView */,
@@ -274,6 +277,14 @@
 				4DEAA0F327BFFCB00035CEDD /* XCTest.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7C04D7002955FFF6003CF4B3 /* UIEdgeInsets */ = {
+			isa = PBXGroup;
+			children = (
+				7C04D70129560008003CF4B3 /* UIEdgeInsets+all.swift */,
+			);
+			path = UIEdgeInsets;
 			sourceTree = "<group>";
 		};
 		7C209A822955C6BE00309F12 /* Views */ = {
@@ -388,6 +399,7 @@
 				4D461F3127BFDDFE00B585AB /* Color.swift in Sources */,
 				4D461F3527BFDDFE00B585AB /* ProfileViewController.swift in Sources */,
 				4D461F3227BFDDFE00B585AB /* Item.swift in Sources */,
+				7C04D70229560008003CF4B3 /* UIEdgeInsets+all.swift in Sources */,
 				4D461F3F27BFDDFE00B585AB /* UIView+positionCenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

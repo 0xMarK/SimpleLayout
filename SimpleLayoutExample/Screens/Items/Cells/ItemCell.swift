@@ -11,9 +11,9 @@ import SwiftUI
 class ItemCell: UICollectionViewCell {
     
     private enum Layout {
-        static let cellEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        static let contentEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
-        static let buyButtonContentInsets: UIEdgeInsets = UIEdgeInsets(top: 12, left: 45, bottom: 12, right: 45)
+        static let cellEdgeInsets: UIEdgeInsets = .all(0)
+        static let contentEdgeInsets: UIEdgeInsets = .all(8)
+        static let buyButtonContentInsets: UIEdgeInsets = .init(top: 12, left: 45, bottom: 12, right: 45)
         static let defaultSpacing: CGFloat = 8
         static let imageWidth: CGFloat = 100
         static let buttonCornerRadius: CGFloat = 8

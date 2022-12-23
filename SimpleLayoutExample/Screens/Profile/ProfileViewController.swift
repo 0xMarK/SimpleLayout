@@ -121,7 +121,7 @@ extension ProfileViewController {
                 contentStackView.add(topView) { _ in
                     topView.addCentering(avatarImageView)
                 }
-                contentStackView.add(VStackView(spacing: 8, insets: .init(top: 16, left: 16, bottom: 16, right: 16))) { formStackView in
+                contentStackView.add(VStackView(spacing: 8, insets: .all(16))) { formStackView in
                     formStackView.add(HStackView(spacing: 8)) { firstNameStackView in
                         firstNameStackView.add(firstNameCaptionLabel)
                         firstNameStackView.add(firstNameTextField)

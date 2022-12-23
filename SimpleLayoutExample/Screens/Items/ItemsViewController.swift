@@ -13,7 +13,7 @@ class ItemsViewController: UIViewController {
     private var items: [Item] = Item.items
     
     private let collectionViewFlowLayout: UICollectionViewFlowLayout = {
-        $0.sectionInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+        $0.sectionInset = .all(8)
         $0.minimumLineSpacing = 8
         return $0
     }(UICollectionViewFlowLayout())

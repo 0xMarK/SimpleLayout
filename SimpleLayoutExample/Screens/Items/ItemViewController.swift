@@ -122,7 +122,7 @@ extension ItemViewController {
                 contentStackView.add(imageStackView) { _ in
                     imageStackView.add(imageView)
                 }
-                contentStackView.add(VStackView(spacing: 16, insets: .init(top: 16, left: 16, bottom: 16, right: 16))) { infoStackView in
+                contentStackView.add(VStackView(spacing: 16, insets: .all(16))) { infoStackView in
                     infoStackView.add(titleLabel)
                     infoStackView.add(descriptionStackView) { _ in
                         descriptionStackView.add(DividerView(color: .border))
@@ -132,9 +132,9 @@ extension ItemViewController {
                     infoStackView.add(priceLabel)
                     infoStackView.add(buyButton)
                 }
-                contentStackView.add(otherProductsLabel, insets: .init(top: 16, left: 16, bottom: 0, right: 16))
+                contentStackView.add(otherProductsLabel, insets: .all(16))
                 contentStackView.add(UIScrollView()) { hScroll in
-                    hScroll.addHContent(HStackView(spacing: 16), insets: .init(top: 16, left: 16, bottom: 16, right: 16)) { hStackView in
+                    hScroll.addHContent(HStackView(spacing: 16), insets: .all(16)) { hStackView in
                         for product in otherProducts {
                             if let image = UIImage(named: product) {
                                 hStackView.add(UIImageView(image: image)) { imageView in
