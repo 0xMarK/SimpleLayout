@@ -12,7 +12,7 @@ import UIKit
 extension UIView {
     
     @discardableResult
-    open func positionCenter(insets: UIEdgeInsets = .zero, to view: UIView? = nil) -> [NSLayoutConstraint] {
+    public func positionCenter(insets: UIEdgeInsets = .zero, to view: UIView? = nil) -> [NSLayoutConstraint] {
         guard let view = view ?? superview else { return [] }
         translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([

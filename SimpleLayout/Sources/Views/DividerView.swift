@@ -1,5 +1,5 @@
 //
-//  SeparatorView.swift
+//  DividerView.swift
 //  SimpleLayout
 //
 //  Created by Anton Kaliuzhnyi on 20.05.2021.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-open class SeparatorView: UIView {
+open class DividerView: UIView {
     
     open class var defaultInsets: UIEdgeInsets { .zero }
     

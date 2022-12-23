@@ -10,13 +10,6 @@ import SwiftUI
 
 class ItemViewController: UIViewController {
     
-    private enum Layout {
-        static let contentEdgeInsets = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
-        static let buyButtonContentInsets: UIEdgeInsets = UIEdgeInsets(top: 12, left: 45, bottom: 12, right: 45)
-        static let defaultSpacing: CGFloat = 16
-        static let buttonCornerRadius: CGFloat = 8
-    }
-    
     var item: Item {
         didSet {
             updateView()
@@ -29,30 +22,13 @@ class ItemViewController: UIViewController {
         return $0
     }(UIScrollView())
     
-    private let contentStackView: UIStackView = {
-        $0.axis = .vertical
-        return $0
-    }(UIStackView())
-    
-    private let imageStackView: UIStackView = {
-        $0.axis = .horizontal
-        $0.alignment = .top
-        return $0
-    }(UIStackView())
+    private let imageStackView = HStackView(alignment: .top)
     
     private let imageView: UIImageView = {
         $0.widthAnchor.constraint(equalTo: $0.heightAnchor, multiplier: 1).isActive = true
         $0.clipsToBounds = true
         return $0
     }(UIImageView())
-    
-    private let infoStackView: UIStackView = {
-        $0.axis = .vertical
-        $0.isLayoutMarginsRelativeArrangement = true
-        $0.layoutMargins = Layout.contentEdgeInsets
-        $0.spacing = Layout.defaultSpacing
-        return $0
-    }(UIStackView())
     
     private let titleLabel: UILabel = {
         $0.font = .title
@@ -61,11 +37,7 @@ class ItemViewController: UIViewController {
         return $0
     }(UILabel())
     
-    private let descriptionStackView: UIStackView = {
-        $0.axis = .vertical
-        $0.spacing = Layout.defaultSpacing
-        return $0
-    }(UIStackView())
+    private let descriptionStackView = VStackView(spacing: 16)
     
     private let descriptionLabel: UILabel = {
         $0.font = .standard
@@ -83,8 +55,8 @@ class ItemViewController: UIViewController {
     }(UILabel())
     
     private lazy var buyButton: UIButton = {
-        $0.layer.cornerRadius = Layout.buttonCornerRadius
-        $0.contentEdgeInsets = Layout.buyButtonContentInsets
+        $0.layer.cornerRadius = 8
+        $0.contentEdgeInsets = .init(top: 12, left: 45, bottom: 12, right: 45)
         $0.titleLabel?.font = .buyButton
         $0.setTitle(Self.buyButtonText, for: .normal)
         $0.setTitleColor(.white, for: .normal)
@@ -93,9 +65,23 @@ class ItemViewController: UIViewController {
         return $0
     }(UIButton())
     
+    private let otherProductsLabel: UILabel = {
+        $0.font = .subtitle
+        $0.textColor = .foreground
+        $0.numberOfLines = 0
+        $0.text = "Other products"
+        return $0
+    }(UILabel())
+    
     private var onTap: ((ItemCellModel) -> Void)?
     private var onBuyTap: ((Item) -> Void)?
     private var onOptionsTap: ((Item) -> Void)?
+    
+    private let otherProducts = [
+        "Dice",
+        "Headphones",
+        "Jar"
+    ]
     
     private class func priceFormatted(_ item: Item) -> String { "\(item.price.currency) \(item.price.amountToPay)" }
     
@@ -132,21 +118,32 @@ extension ItemViewController {
     
     private func setupView() {
         view.addFilling(scrollView) { _ in
-            scrollView.add(contentStackView) { _ in
-                contentStackView.snap(to: scrollView.contentLayoutGuide)
-                contentStackView.widthAnchor.constraint(equalTo: scrollView.frameLayoutGuide.widthAnchor).isActive = true
+            scrollView.addVContent(VStackView()) { contentStackView in
                 contentStackView.add(imageStackView) { _ in
                     imageStackView.add(imageView)
                 }
-                contentStackView.add(infoStackView) { _ in
+                contentStackView.add(VStackView(spacing: 16, insets: .init(top: 16, left: 16, bottom: 16, right: 16))) { infoStackView in
                     infoStackView.add(titleLabel)
                     infoStackView.add(descriptionStackView) { _ in
-                        descriptionStackView.add(SeparatorView(color: .border))
+                        descriptionStackView.add(DividerView(color: .border))
                         descriptionStackView.add(descriptionLabel)
                     }
-                    infoStackView.add(SeparatorView(color: .border))
+                    infoStackView.add(DividerView(color: .border))
                     infoStackView.add(priceLabel)
                     infoStackView.add(buyButton)
+                }
+                contentStackView.add(otherProductsLabel, insets: .init(top: 16, left: 16, bottom: 0, right: 16))
+                contentStackView.add(UIScrollView()) { hScroll in
+                    hScroll.addHContent(HStackView(spacing: 16), insets: .init(top: 16, left: 16, bottom: 16, right: 16)) { hStackView in
+                        for product in otherProducts {
+                            if let image = UIImage(named: product) {
+                                hStackView.add(UIImageView(image: image)) { imageView in
+                                    imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor, constant: image.size.height / image.size.width).isActive = true
+                                    imageView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }

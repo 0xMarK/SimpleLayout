@@ -11,6 +11,7 @@ extension UIFont {
     
     static var standard: UIFont { .preferredFont(forTextStyle: .body) }
     static var title: UIFont { .preferredFont(forTextStyle: .title1) }
+    static var subtitle: UIFont { .preferredFont(forTextStyle: .title3) }
     static var shortDescription: UIFont { .preferredFont(forTextStyle: .subheadline) }
     static var price: UIFont { .preferredFont(forTextStyle: .body) }
     static var buyButton: UIFont { .preferredFont(forTextStyle: .body) }

@@ -10,7 +10,7 @@ import UIKit
 extension UIView {
     
     @discardableResult
-    open func snap(to layoutGuide: UILayoutGuide, edges: UIRectEdge = .all, insets: UIEdgeInsets = .zero) -> [NSLayoutConstraint] {
+    public func snap(to layoutGuide: UILayoutGuide, edges: UIRectEdge = .all, insets: UIEdgeInsets = .zero) -> [NSLayoutConstraint] {
         var constraints: [NSLayoutConstraint] = []
         if edges.contains(.top) {
             constraints.append(topAnchor.constraint(equalTo: layoutGuide.topAnchor, constant: insets.top))

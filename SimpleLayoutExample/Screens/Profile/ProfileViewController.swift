@@ -10,13 +10,6 @@ import SwiftUI
 
 class ProfileViewController: UIViewController {
     
-    private enum Layout {
-        static let defaultSpacing: CGFloat = 8
-        static let formEdgeInsets = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
-        static let avatarSize: CGFloat = 100
-        static let cornerRadius: CGFloat = 4
-    }
-    
     private enum Font {
         static var captionFont: UIFont { .preferredFont(forTextStyle: .caption1) }
         static var font: UIFont { .preferredFont(forTextStyle: .body) }
@@ -28,15 +21,8 @@ class ProfileViewController: UIViewController {
         return $0
     }(UIScrollView())
     
-    private let contentStackView: UIStackView = {
-        $0.axis = .vertical
-        return $0
-    }(UIStackView())
-    
     private let topView: UIView = {
-        NSLayoutConstraint.activate([
-            $0.heightAnchor.constraint(equalToConstant: 200)
-        ])
+        $0.heightAnchor.constraint(equalToConstant: 200).isActive = true
         $0.backgroundColor = .userBackground
         return $0
     }(UIView())
@@ -44,17 +30,11 @@ class ProfileViewController: UIViewController {
     private let avatarImageView: UIImageView = {
         NSLayoutConstraint.activate([
             $0.widthAnchor.constraint(equalTo: $0.heightAnchor, multiplier: 1),
-            $0.widthAnchor.constraint(equalToConstant: Layout.avatarSize)
+            $0.widthAnchor.constraint(equalToConstant: 100)
         ])
         $0.image = UIImage(named: "Key")
         return $0
     }(UIImageView())
-    
-    private let formStackView: UIStackView = {
-        $0.axis = .vertical
-        $0.spacing = Layout.defaultSpacing
-        return $0
-    }(UIStackView())
     
     private let firstNameCaptionLabel: UILabel = {
         $0.font = Font.captionFont
@@ -67,7 +47,7 @@ class ProfileViewController: UIViewController {
     private let firstNameTextField: UITextField = {
         $0.layer.borderWidth = 1
         $0.layer.borderColor = UIColor.border.cgColor
-        $0.layer.cornerRadius = Layout.cornerRadius
+        $0.layer.cornerRadius = 4
         $0.font = Font.font
         $0.textColor = .foreground
         $0.text = "John"
@@ -85,7 +65,7 @@ class ProfileViewController: UIViewController {
     private let lastNameTextField: UITextField = {
         $0.layer.borderWidth = 1
         $0.layer.borderColor = UIColor.border.cgColor
-        $0.layer.cornerRadius = Layout.cornerRadius
+        $0.layer.cornerRadius = 4
         $0.font = Font.font
         $0.textColor = .foreground
         $0.text = "Doe"
@@ -103,7 +83,7 @@ class ProfileViewController: UIViewController {
     private let aboutTextView: UITextView = {
         $0.layer.borderWidth = 1
         $0.layer.borderColor = UIColor.border.cgColor
-        $0.layer.cornerRadius = Layout.cornerRadius
+        $0.layer.cornerRadius = 4
         $0.isScrollEnabled = false
         $0.font = Font.font
         $0.textColor = .foreground
@@ -137,26 +117,20 @@ extension ProfileViewController {
     
     private func setupView() {
         view.addFilling(scrollView) { _ in
-            scrollView.add(contentStackView) { _ in
-                contentStackView.snap(to: scrollView.contentLayoutGuide)
-                contentStackView.widthAnchor.constraint(equalTo: scrollView.frameLayoutGuide.widthAnchor).isActive = true
+            scrollView.addVContent(VStackView()) { contentStackView in
                 contentStackView.add(topView) { _ in
                     topView.addCentering(avatarImageView)
                 }
-                contentStackView.add(formStackView, insets: Layout.formEdgeInsets) { _ in
-                    formStackView.add(UIStackView()) { firstNameStackView in
-                        firstNameStackView.spacing = Layout.defaultSpacing
+                contentStackView.add(VStackView(spacing: 8, insets: .init(top: 16, left: 16, bottom: 16, right: 16))) { formStackView in
+                    formStackView.add(HStackView(spacing: 8)) { firstNameStackView in
                         firstNameStackView.add(firstNameCaptionLabel)
                         firstNameStackView.add(firstNameTextField)
                     }
-                    formStackView.add(UIStackView()) { lastNameStackView in
-                        lastNameStackView.spacing = Layout.defaultSpacing
+                    formStackView.add(HStackView(spacing: 8)) { lastNameStackView in
                         lastNameStackView.add(lastNameCaptionLabel)
                         lastNameStackView.add(lastNameTextField)
                     }
-                    formStackView.add(UIStackView()) { aboutStackView in
-                        aboutStackView.axis = .vertical
-                        aboutStackView.spacing = Layout.defaultSpacing
+                    formStackView.add(VStackView(spacing: 8)) { aboutStackView in
                         aboutStackView.add(aboutCaptionLabel)
                         aboutStackView.add(aboutTextView)
                     }

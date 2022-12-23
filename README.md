@@ -15,15 +15,8 @@ class ProfileViewController: UIViewController {
         return $0
     }(UIScrollView())
     
-    private let contentStackView: UIStackView = {
-        $0.axis = .vertical
-        return $0
-    }(UIStackView())
-    
     private let topView: UIView = {
-        NSLayoutConstraint.activate([
-            $0.heightAnchor.constraint(equalToConstant: 200)
-        ])
+        $0.heightAnchor.constraint(equalToConstant: 200).isActive = true
         $0.backgroundColor = .lightGray
         return $0
     }(UIView())
@@ -36,12 +29,6 @@ class ProfileViewController: UIViewController {
         $0.image = UIImage(systemName: "person.fill")
         return $0
     }(UIImageView())
-    
-    private let formStackView: UIStackView = {
-        $0.axis = .vertical
-        $0.spacing = 8
-        return $0
-    }(UIStackView())
     
     private let nameCaptionLabel: UILabel = {
         $0.font = .preferredFont(forTextStyle: .caption1)
@@ -68,15 +55,12 @@ class ProfileViewController: UIViewController {
     
     private func setupView() {
         view.addFilling(scrollView) { _ in
-            scrollView.add(contentStackView) { _ in
-                contentStackView.snap(to: scrollView.contentLayoutGuide)
-                contentStackView.widthAnchor.constraint(equalTo: scrollView.frameLayoutGuide.widthAnchor).isActive = true
+            scrollView.addVContent(VStackView()) { contentStackView in
                 contentStackView.add(topView) { _ in
                     topView.addCentering(avatarImageView)
                 }
-                contentStackView.add(formStackView, insets: UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)) { _ in
-                    formStackView.add(UIStackView()) { nameStackView in
-                        nameStackView.spacing = 8
+                contentStackView.add(VStackView(spacing: 8, insets: .init(top: 16, left: 16, bottom: 16, right: 16))) { formStackView in
+                    formStackView.add(HStackView(spacing: 8)) { nameStackView in
                         nameStackView.add(nameCaptionLabel)
                         nameStackView.add(nameTextField)
                     }

@@ -10,7 +10,7 @@ import UIKit
 extension UIView {
     
     @discardableResult
-    open func snapToEdges(edges: UIRectEdge = .all, insets: UIEdgeInsets = .zero, to view: UIView? = nil) -> [NSLayoutConstraint] {
+    public func snapToEdges(edges: UIRectEdge = .all, insets: UIEdgeInsets = .zero, to view: UIView? = nil) -> [NSLayoutConstraint] {
         guard let view = view ?? superview else { return [] }
         var constraints: [NSLayoutConstraint] = []
         if edges.contains(.top) {

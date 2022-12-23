@@ -32,19 +32,7 @@ class ItemCell: UICollectionViewCell {
         }
     }
     
-    private let backgroundStackView: UIStackView = {
-        $0.axis = .horizontal
-        $0.isLayoutMarginsRelativeArrangement = true
-        $0.layoutMargins = Layout.contentEdgeInsets
-        $0.spacing = Layout.defaultSpacing
-        return $0
-    }(UIStackView())
-    
-    private let imageStackView: UIStackView = {
-        $0.axis = .horizontal
-        $0.alignment = .top
-        return $0
-    }(UIStackView())
+    private let imageStackView = HStackView(alignment: .top)
     
     private let imageView: UIImageView = {
         NSLayoutConstraint.activate([
@@ -56,12 +44,6 @@ class ItemCell: UICollectionViewCell {
         $0.setContentHuggingPriority(.required, for: .horizontal)
         return $0
     }(UIImageView())
-    
-    private let infoStackView: UIStackView = {
-        $0.axis = .vertical
-        $0.spacing = Layout.defaultSpacing
-        return $0
-    }(UIStackView())
     
     private let titleLabel: UILabel = {
         $0.font = Font.titleFont
@@ -141,7 +123,7 @@ extension ItemCell {
     
     private func setupView() {
         contentView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapAction)))
-        contentView.addFilling(backgroundStackView, insets: Layout.cellEdgeInsets) { _ in
+        contentView.addFilling(HStackView(spacing: Layout.defaultSpacing, insets: Layout.contentEdgeInsets), insets: Layout.cellEdgeInsets) { backgroundStackView in
             backgroundStackView.addFilling(UIView()) { backgroundView in
                 backgroundView.backgroundColor = .white
                 backgroundView.layer.cornerRadius = 8
@@ -149,10 +131,10 @@ extension ItemCell {
             backgroundStackView.add(imageStackView) { _ in
                 imageStackView.add(imageView)
             }
-            backgroundStackView.add(infoStackView) { _ in
+            backgroundStackView.add(VStackView(spacing: Layout.defaultSpacing)) { infoStackView in
                 infoStackView.add(titleLabel)
                 infoStackView.add(descriptionLabel)
-                infoStackView.add(SeparatorView(color: .border))
+                infoStackView.add(DividerView(color: .border))
                 infoStackView.add(priceLabel)
                 infoStackView.add(buyButton)
             }
@@ -200,7 +182,7 @@ extension ItemCell: SizeCalculatable {
             height += ceil(description.rect(with: constraintSize, font: Font.descriptionFont).height)
         }
         height += Layout.defaultSpacing
-        height += SeparatorView.defaultThickness
+        height += DividerView.defaultThickness
         height += Layout.defaultSpacing
         height += ceil(priceFormatted(model.item).rect(with: constraintSize, font: Font.priceFont).height)
         height += Layout.defaultSpacing
